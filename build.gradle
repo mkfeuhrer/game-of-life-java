@@ -11,12 +11,17 @@ plugins {
     id 'java'
     id 'com.github.sherter.google-java-format' version '0.8'
     id 'jacoco'
+    id 'application'
 }
 
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+}
+
+application {
+    mainClassName = 'com.gojek.bootcamp.gameoflife.Game.Game'
 }
 
 googleJavaFormat {

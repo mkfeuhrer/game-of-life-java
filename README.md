@@ -29,6 +29,12 @@ Return state of life after each iteration.
 ./gradlew clean test
 ```
 
+## Run instructions
+
+```
+./gradlew clean run
+```
+
 ## Get Code Coverage
 
 ```
@@ -39,5 +45,9 @@ Return state of life after each iteration.
 ```
 gameoflife/build/reports/tests/test/index.html
 ```
+
+## Limitation
+
+- No I/O is available.
 
 [1]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
