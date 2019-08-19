@@ -1,16 +1,22 @@
 package com.gojek.bootcamp.gameoflife.Game;
 
-public class Game {
-    public Game() {}
+import com.gojek.bootcamp.gameoflife.Board.Board;
 
-    public int[][] getBoard(int size) {
-        int board[][] = new int[size][size];
-        return board;
+public class Game {
+    private Board board;
+
+    public Game(Board board) {
+        this.board = board;
+    }
+
+    public int[][] start() {
+        return this.board.getBoard();
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Game of Life!!");
-        Game game = new Game();
-        game.getBoard(10);
+        Board board = new Board(5);
+        Game game = new Game(board);
+        game.start();
     }
 }
