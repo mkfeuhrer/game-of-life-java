@@ -35,6 +35,12 @@ Return state of life after each iteration.
 ./gradlew clean run
 ```
 
+Input Instructions -
+
+- First input number (N) of live cells initially.
+- Next N Lines, enter zero indexed row and column of live cells.
+- Enter how many iterations(X) you want to view ?
+
 ## Get Code Coverage
 
 ```
@@ -48,7 +54,7 @@ gameoflife/build/reports/tests/test/index.html
 
 ## Limitation
 
-- No I/O is available.
-- Shows empty board
+- Shows board with initial input.
+- Dynamic board size not supported.
 
 [1]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life

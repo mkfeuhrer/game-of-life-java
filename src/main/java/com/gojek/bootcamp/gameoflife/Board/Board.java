@@ -11,6 +11,10 @@ public class Board {
         return cells;
     }
 
+    public void setCells(Cell[][] cells) {
+        this.cells = cells;
+    }
+
     private void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -27,12 +31,13 @@ public class Board {
                     System.out.print(deadCell.getString());
                 }
             }
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-
-            }
-            clearScreen();
+            System.out.println();
         }
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+
+        }
+        clearScreen();
     }
 }

@@ -24,6 +24,10 @@ application {
     mainClassName = 'com.gojek.bootcamp.gameoflife.Game.Game'
 }
 
+run {
+    standardInput = System.in
+}
+
 googleJavaFormat {
     options style: 'AOSP'
 }
