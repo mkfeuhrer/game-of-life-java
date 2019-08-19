@@ -112,22 +112,21 @@ public class Game {
     }
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Game of Life!!");
-        Board board = new Board(new Cell[5][5]);
-        Game game = new Game(board);
-        game.getBoardClass().setCells(handleInitialInput(board.getCells()));
+        Game game = GameController.start();
         game.getBoardClass().showBoard();
         System.out.println("Enter number of iterations after which you want to see life :");
         Scanner input = new Scanner(System.in);
         int iterationCount = input.nextInt();
-        while (iterationCount > 0) {
+        int count = 1;
+        while (count <= iterationCount) {
+            System.out.println("Iteration Count: " + count);
             System.out.println("Life is running, are you ?\nCurrent State of Life :");
-            game.changeStates(game.getBoardClass().getCells());
             if (game.isBoardExpansionRequired(game.getBoardClass().getCells())) {
                 game.getBoardClass().expandGrid();
             }
+            game.changeStates(game.getBoardClass().getCells());
             game.getBoardClass().showBoard();
-            iterationCount--;
+            count++;
         }
     }
 }

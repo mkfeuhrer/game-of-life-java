@@ -22,7 +22,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldReturnBoardAfterStateChanges() {
+    public void shouldReturnBoardAfterNoStateChanges() {
         Game game = createEmptyGame();
         Cell[][] board = game.getBoardClass().getCells();
         game.changeStates(board);
@@ -104,5 +104,19 @@ public class GameTest {
 
         output = game.getState(aliveNeighbours, 0);
         Assert.assertEquals(0, output);
+    }
+
+    @Test
+    public void shouldReturnTrueIfBoardExpansionIsNeeded() {
+        Game game = createEmptyGame();
+        game.getBoardClass().setSingleCell(0, 2, 1);
+        Assert.assertTrue(game.isBoardExpansionRequired(game.getBoardClass().getCells()));
+    }
+
+    @Test
+    public void shouldReturnFalseIfBoardExpansionIsNotNeeded() {
+        Game game = createEmptyGame();
+        game.getBoardClass().setSingleCell(1, 2, 1);
+        Assert.assertFalse(game.isBoardExpansionRequired(game.getBoardClass().getCells()));
     }
 }
