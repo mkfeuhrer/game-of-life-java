@@ -96,6 +96,12 @@ public class Game {
         return board;
     }
 
+    public boolean isBoardExpansionRequired(Cell[][] board) {
+        int extremeLeft = getBoardClass().getExtremeLeft();
+        System.out.println(extremeLeft);
+        return false;
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Game of Life!!");
         Board board = new Board(new Cell[5][5]);
@@ -108,6 +114,9 @@ public class Game {
         while (iterationCount > 0) {
             System.out.println("Life is running, are you ?\nCurrent State of Life :");
             game.changeStates(game.getBoardClass().getCells());
+            if (game.isBoardExpansionRequired(game.getBoardClass().getCells())) {
+                continue;
+            }
             game.getBoardClass().showBoard();
             iterationCount--;
         }
