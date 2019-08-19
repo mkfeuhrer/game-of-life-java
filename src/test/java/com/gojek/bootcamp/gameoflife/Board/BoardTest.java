@@ -51,4 +51,13 @@ public class BoardTest {
         board.setSingleCell(1, 4, 1);
         Assert.assertEquals(4, board.getExtremeRight());
     }
+
+    @Test
+    public void shouldReturnTopmostColumnIndex() {
+        Board board = createBoard();
+        board.setSingleCell(1, 3, 1);
+        Assert.assertEquals(1, board.getExtremeTop());
+        board.setSingleCell(0, 4, 1);
+        Assert.assertEquals(0, board.getExtremeTop());
+    }
 }

@@ -99,7 +99,8 @@ public class Game {
     public boolean isBoardExpansionRequired(Cell[][] board) {
         int extremeLeft = getBoardClass().getExtremeLeft();
         int extremeRight = getBoardClass().getExtremeLeft();
-        System.out.println(extremeLeft + " " + extremeRight);
+        int extremeTop = getBoardClass().getExtremeTop();
+        System.out.println(extremeLeft + " " + extremeRight + " " + extremeTop);
         return false;
     }
 
