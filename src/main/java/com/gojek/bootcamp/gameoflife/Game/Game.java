@@ -9,14 +9,19 @@ public class Game {
         this.board = board;
     }
 
+    public Board getBoardClass() {
+        return board;
+    }
+
     public int[][] start() {
-        return this.board.getBoard();
+        return getBoardClass().getBoard();
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Game of Life!!");
         Board board = new Board(5);
         Game game = new Game(board);
+        game.getBoardClass().showBoard();
         game.start();
     }
 }

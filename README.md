@@ -49,5 +49,6 @@ gameoflife/build/reports/tests/test/index.html
 ## Limitation
 
 - No I/O is available.
+- Shows empty board
 
 [1]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
