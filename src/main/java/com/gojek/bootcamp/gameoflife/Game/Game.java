@@ -17,8 +17,18 @@ public class Game {
         return board;
     }
 
-    public Cell[][] start() {
-        return getBoardClass().getCells();
+    public void changeStates(Cell[][] board) {
+        Cell[][] newBoard = new Cell[board.length][board.length];
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board.length; col++) {
+                if (board[row][col].isAlive()) {
+                    newBoard[row][col] = new AliveCell();
+                } else {
+                    newBoard[row][col] = new DeadCell();
+                }
+            }
+        }
+        getBoardClass().setCells(newBoard);
     }
 
     public static Cell[][] handleInitialInput(Cell[][] board) {
@@ -51,7 +61,15 @@ public class Game {
         Board board = new Board(new Cell[5][5]);
         Game game = new Game(board);
         game.getBoardClass().setCells(handleInitialInput(board.getCells()));
-        game.start();
+        System.out.println("Enter number of iterations after which you want to see life :");
+        Scanner input = new Scanner(System.in);
+        int iterationCount = input.nextInt();
+        while (iterationCount > 0) {
+            System.out.println("Life is running, are you ?\nCurrent State of Life :");
+            game.changeStates(game.getBoardClass().getCells());
+            game.getBoardClass().showBoard();
+            iterationCount--;
+        }
         game.getBoardClass().showBoard();
     }
 }

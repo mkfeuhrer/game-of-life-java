@@ -15,6 +15,19 @@ public class Board {
         this.cells = cells;
     }
 
+    public int[][] toArray() {
+        int size = this.cells.length;
+        int[][] newBoard = new int[size][size];
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                if (cells[row][col].isAlive()) {
+                    newBoard[row][col] = 1;
+                }
+            }
+        }
+        return newBoard;
+    }
+
     private void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
