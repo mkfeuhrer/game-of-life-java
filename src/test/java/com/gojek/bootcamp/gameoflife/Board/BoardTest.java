@@ -70,12 +70,12 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldExpandBoardWithOneColumnRight() {
+    public void shouldExpandBoardWithOneColumnRightAndBottom() {
         Board board = createBoard(5);
         board.setSingleCell(1, 4, 1);
         Board newBoard = createBoard(6);
         newBoard.setSingleCell(1, 4, 1);
-        board.expandRight();
+        board.expandRightAndBottom();
         Assert.assertEquals(newBoard.toArray(), new Board(board.getCells()).toArray());
     }
 }

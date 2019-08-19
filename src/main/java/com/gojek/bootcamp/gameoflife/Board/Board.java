@@ -89,7 +89,7 @@ public class Board {
         System.out.flush();
     }
 
-    public void expandRight() {
+    public void expandRightAndBottom() {
         int size = this.cells.length;
         Cell[][] newBoard = new Cell[size + 1][size + 1];
         for (int row = 0; row < size; row++) {
@@ -113,8 +113,9 @@ public class Board {
         System.out.println(
                 extremeLeft + " " + extremeRight + " " + extremeTop + " " + extremeBottom);
 
-        if (Math.abs(extremeRight - this.cells.length) == 1) {
-            expandRight();
+        if (Math.abs(extremeRight - this.cells.length) == 1
+                || Math.abs(extremeBottom - this.cells.length) == 1) {
+            expandRightAndBottom();
         }
     }
 
