@@ -17,11 +17,16 @@ public class Game {
         return board;
     }
 
+    public int CountAliveNeighbours(Cell[][] board, int checkRow, int checkCol) {
+        return 0;
+    }
+
     public void changeStates(Cell[][] board) {
         Cell[][] newBoard = new Cell[board.length][board.length];
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board.length; col++) {
-                if (board[row][col].isAlive()) {
+                int aliveNeighbours = CountAliveNeighbours(board, row, col);
+                if (aliveNeighbours != 0 && board[row][col].isAlive()) {
                     newBoard[row][col] = new AliveCell();
                 } else {
                     newBoard[row][col] = new DeadCell();

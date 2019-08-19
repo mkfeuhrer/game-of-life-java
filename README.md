@@ -58,5 +58,3 @@ gameoflife/build/reports/tests/test/index.html
 - Dynamic board size not supported.
 
 [1]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
-
-Note : Went for lunch and speaking drill
