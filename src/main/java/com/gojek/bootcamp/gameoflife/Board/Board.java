@@ -48,6 +48,18 @@ public class Board {
         return extremeLeft;
     }
 
+    public int getExtremeRight() {
+        int extremeRight = 0;
+        for (int row = 0; row < this.cells.length; row++) {
+            for (int col = 0; col < this.cells.length; col++) {
+                if (this.cells[row][col].getValue() == 1) {
+                    extremeRight = Math.max(extremeRight, col);
+                }
+            }
+        }
+        return extremeRight;
+    }
+
     private void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();

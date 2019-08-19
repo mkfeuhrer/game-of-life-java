@@ -42,4 +42,13 @@ public class BoardTest {
         board.setSingleCell(1, 0, 1);
         Assert.assertEquals(0, board.getExtremeLeft());
     }
+
+    @Test
+    public void shouldReturnRightmostColumnIndex() {
+        Board board = createBoard();
+        board.setSingleCell(2, 3, 1);
+        Assert.assertEquals(3, board.getExtremeRight());
+        board.setSingleCell(1, 4, 1);
+        Assert.assertEquals(4, board.getExtremeRight());
+    }
 }
