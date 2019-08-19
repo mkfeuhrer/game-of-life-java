@@ -26,7 +26,8 @@ public class GameController {
                             + "6. Pulsar \n"
                             + "7. Pentadecathlon \n"
                             + "8 Glider \n"
-                            + "9. LWSS \n");
+                            + "9. LWSS \n"
+                            + "10. GosperGlider \n");
             int choice = input.nextInt();
             if (choice == 1) values = Patterns.Block;
             else if (choice == 2) values = Patterns.Loaf;
@@ -37,6 +38,7 @@ public class GameController {
             else if (choice == 7) values = Patterns.Pentadecathlon;
             else if (choice == 8) values = Patterns.Glider;
             else if (choice == 9) values = Patterns.LWSS;
+            else if (choice == 10) values = Patterns.GosperGlider;
             int size = values.length;
             Board board = new Board(new Cell[size][size]);
             for (int row = 0; row < size; row++) {
