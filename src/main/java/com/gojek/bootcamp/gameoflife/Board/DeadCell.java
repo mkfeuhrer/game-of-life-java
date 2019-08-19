@@ -12,4 +12,9 @@ public class DeadCell implements Cell {
     public String getString() {
         return " □";
     }
+
+    @Override
+    public int getValue() {
+        return 0;
+    }
 }

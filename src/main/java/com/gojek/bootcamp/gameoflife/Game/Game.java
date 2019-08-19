@@ -17,8 +17,24 @@ public class Game {
         return board;
     }
 
+    public boolean checkBounds(int row, int col) {
+        int len = getBoardClass().getCells().length;
+        if (row >= len || row < 0) return false;
+        if (col >= len || col < 0) return false;
+        return true;
+    }
+
     public int CountAliveNeighbours(Cell[][] board, int checkRow, int checkCol) {
-        return 0;
+        int aliveNeighbours = 0;
+        for (int row = -1; row <= 1; row++) {
+            for (int col = -1; col <= 1; col++) {
+                if (checkBounds(checkRow + row, checkCol + col)
+                        && board[checkRow + row][checkCol + col].getValue() == 1) {
+                    aliveNeighbours++;
+                }
+            }
+        }
+        return aliveNeighbours;
     }
 
     public void changeStates(Cell[][] board) {

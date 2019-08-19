@@ -15,6 +15,14 @@ public class Board {
         this.cells = cells;
     }
 
+    public void setSingleCell(int row, int col, int value) {
+        if (value == 1) {
+            this.cells[row][col] = new AliveCell();
+        } else {
+            this.cells[row][col] = new DeadCell();
+        }
+    }
+
     public int[][] toArray() {
         int size = this.cells.length;
         int[][] newBoard = new int[size][size];

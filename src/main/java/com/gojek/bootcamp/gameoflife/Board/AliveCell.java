@@ -13,4 +13,9 @@ public class AliveCell implements Cell {
     public String getString() {
         return " ▦";
     }
+
+    @Override
+    public int getValue() {
+        return 1;
+    }
 }

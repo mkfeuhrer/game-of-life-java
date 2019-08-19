@@ -4,4 +4,6 @@ public interface Cell {
     boolean isAlive();
 
     String getString();
+
+    int getValue();
 }
