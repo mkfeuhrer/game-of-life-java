@@ -29,6 +29,11 @@ public class Game {
             System.out.println("Enter row and col of live cell :");
             int row = input.nextInt();
             int col = input.nextInt();
+            if (row >= board.length || col >= board.length) {
+                System.out.println(
+                        "Failed :: Out of bounds, Memory exceeded! Try smaller index value");
+                System.exit(0);
+            }
             board[row][col] = new AliveCell();
         }
         for (int row = 0; row < board.length; row++) {
