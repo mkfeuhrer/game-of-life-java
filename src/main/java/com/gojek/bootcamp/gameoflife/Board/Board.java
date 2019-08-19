@@ -102,7 +102,21 @@ public class Board {
             newBoard[cells][size] = new DeadCell();
         }
         setCells(newBoard);
-        showBoard();
+    }
+
+    public void expandTopAndLeft() {
+        int size = this.cells.length;
+        Cell[][] newBoard = new Cell[size + 1][size + 1];
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                newBoard[row + 1][col + 1] = this.cells[row][col];
+            }
+        }
+        for (int cells = 0; cells < size + 1; cells++) {
+            newBoard[0][cells] = new DeadCell();
+            newBoard[cells][0] = new DeadCell();
+        }
+        setCells(newBoard);
     }
 
     public void expandGrid() {
@@ -110,12 +124,13 @@ public class Board {
         int extremeRight = this.getExtremeLeft();
         int extremeTop = this.getExtremeTop();
         int extremeBottom = this.getExtremeBottom();
-        System.out.println(
-                extremeLeft + " " + extremeRight + " " + extremeTop + " " + extremeBottom);
 
         if (Math.abs(extremeRight - this.cells.length) == 1
                 || Math.abs(extremeBottom - this.cells.length) == 1) {
             expandRightAndBottom();
+        }
+        if (extremeLeft == 0 || extremeTop == 0) {
+            expandTopAndLeft();
         }
     }
 

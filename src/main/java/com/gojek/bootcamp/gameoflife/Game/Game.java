@@ -101,10 +101,11 @@ public class Game {
         int extremeRight = getBoardClass().getExtremeLeft();
         int extremeTop = getBoardClass().getExtremeTop();
         int extremeBottom = getBoardClass().getExtremeBottom();
-        System.out.println(
-                extremeLeft + " " + extremeRight + " " + extremeTop + " " + extremeBottom);
 
-        if (Math.abs(extremeRight) == 0) {
+        if (Math.abs(extremeRight - board.length) == 1
+                || Math.abs(extremeBottom - board.length) == 1
+                || extremeLeft == 0
+                || extremeTop == 0) {
             return true;
         }
         return false;

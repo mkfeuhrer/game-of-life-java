@@ -70,12 +70,42 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldExpandBoardWithOneColumnRightAndBottom() {
+    public void shouldExpandBoardWithOneColumnRight() {
         Board board = createBoard(5);
         board.setSingleCell(1, 4, 1);
         Board newBoard = createBoard(6);
         newBoard.setSingleCell(1, 4, 1);
-        board.expandRightAndBottom();
+        board.expandGrid();
+        Assert.assertEquals(newBoard.toArray(), new Board(board.getCells()).toArray());
+    }
+
+    @Test
+    public void shouldExpandBoardWithOneRowBottom() {
+        Board board = createBoard(5);
+        board.setSingleCell(4, 4, 1);
+        Board newBoard = createBoard(6);
+        newBoard.setSingleCell(4, 4, 1);
+        board.expandGrid();
+        Assert.assertEquals(newBoard.toArray(), new Board(board.getCells()).toArray());
+    }
+
+    @Test
+    public void shouldExpandBoardWithOneColumnLeftAndTop() {
+        Board board = createBoard(5);
+        board.setSingleCell(1, 0, 1);
+        Board newBoard = createBoard(6);
+        newBoard.setSingleCell(2, 1, 1);
+        board.expandGrid();
+        Assert.assertEquals(newBoard.toArray(), new Board(board.getCells()).toArray());
+    }
+
+    @Test
+    public void shouldExpandBoardWithOneRowTop() {
+        Board board = createBoard(5);
+        board.setSingleCell(0, 1, 1);
+        Board newBoard = createBoard(6);
+        newBoard.setSingleCell(1, 2, 1);
+        board.expandGrid();
         Assert.assertEquals(newBoard.toArray(), new Board(board.getCells()).toArray());
     }
 }
