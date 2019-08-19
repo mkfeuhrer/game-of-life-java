@@ -70,4 +70,39 @@ public class GameTest {
         output = game.checkBounds(-1, -1);
         Assert.assertFalse(output);
     }
+
+    @Test
+    public void TestGetState() {
+        Game game = createEmptyGame();
+        int aliveNeighbours = 0;
+        int output = game.getState(aliveNeighbours, 0);
+        Assert.assertEquals(0, output);
+
+        output = game.getState(aliveNeighbours, 1);
+        Assert.assertEquals(1, output);
+
+        output = game.getState(aliveNeighbours, -1);
+        Assert.assertEquals(-1, output);
+
+        aliveNeighbours = 2;
+        output = game.getState(aliveNeighbours, 0);
+        Assert.assertEquals(0, output);
+
+        output = game.getState(aliveNeighbours, 1);
+        Assert.assertEquals(0, output);
+
+        aliveNeighbours = 3;
+        output = game.getState(aliveNeighbours, 0);
+        Assert.assertEquals(1, output);
+
+        output = game.getState(aliveNeighbours, 1);
+        Assert.assertEquals(0, output);
+
+        aliveNeighbours = 4;
+        output = game.getState(aliveNeighbours, 1);
+        Assert.assertEquals(1, output);
+
+        output = game.getState(aliveNeighbours, 0);
+        Assert.assertEquals(0, output);
+    }
 }

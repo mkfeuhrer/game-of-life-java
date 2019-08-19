@@ -28,6 +28,7 @@ public class Game {
         int aliveNeighbours = 0;
         for (int row = -1; row <= 1; row++) {
             for (int col = -1; col <= 1; col++) {
+                if (row == 0 && col == 0) continue;
                 if (checkBounds(checkRow + row, checkCol + col)
                         && board[checkRow + row][checkCol + col].getValue() == 1) {
                     aliveNeighbours++;
@@ -37,15 +38,33 @@ public class Game {
         return aliveNeighbours;
     }
 
+    public int getState(int aliveNeighbours, int value) {
+        if (value == 1) {
+            if (aliveNeighbours >= 2 && aliveNeighbours < 4) {
+                return 0;
+            } else return 1;
+        } else if (value == 0) {
+            if (aliveNeighbours == 3) return 1;
+            else return 0;
+        } else {
+            return -1;
+        }
+    }
+
     public void changeStates(Cell[][] board) {
         Cell[][] newBoard = new Cell[board.length][board.length];
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board.length; col++) {
                 int aliveNeighbours = CountAliveNeighbours(board, row, col);
-                if (aliveNeighbours != 0 && board[row][col].isAlive()) {
-                    newBoard[row][col] = new AliveCell();
+                int state = getState(aliveNeighbours, board[row][col].getValue());
+                if (state == 1) {
+                    if (board[row][col].getValue() == 1) {
+                        newBoard[row][col] = new DeadCell();
+                    } else {
+                        newBoard[row][col] = new AliveCell();
+                    }
                 } else {
-                    newBoard[row][col] = new DeadCell();
+                    newBoard[row][col] = board[row][col];
                 }
             }
         }
@@ -82,6 +101,7 @@ public class Game {
         Board board = new Board(new Cell[5][5]);
         Game game = new Game(board);
         game.getBoardClass().setCells(handleInitialInput(board.getCells()));
+        game.getBoardClass().showBoard();
         System.out.println("Enter number of iterations after which you want to see life :");
         Scanner input = new Scanner(System.in);
         int iterationCount = input.nextInt();
@@ -91,6 +111,5 @@ public class Game {
             game.getBoardClass().showBoard();
             iterationCount--;
         }
-        game.getBoardClass().showBoard();
     }
 }

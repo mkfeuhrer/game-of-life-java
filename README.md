@@ -54,7 +54,7 @@ gameoflife/build/reports/tests/test/index.html
 
 ## Limitation
 
-- Shows board with initial input.
-- Dynamic board size not supported.
+- Project works for any input, but dynamic array expansion doesnt work. 
+- Throws out of bound if board size is exceeded.
 
 [1]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life

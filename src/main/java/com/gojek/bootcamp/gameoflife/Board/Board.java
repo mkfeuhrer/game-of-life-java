@@ -44,13 +44,7 @@ public class Board {
     public void showBoard() {
         for (int row = 0; row < this.cells.length; row++) {
             for (int col = 0; col < this.cells.length; col++) {
-                if (this.cells[row][col].isAlive()) {
-                    AliveCell aliveCell = new AliveCell();
-                    System.out.print(aliveCell.getString());
-                } else {
-                    DeadCell deadCell = new DeadCell();
-                    System.out.print(deadCell.getString());
-                }
+                System.out.print(this.cells[row][col].getString());
             }
             System.out.println();
         }
