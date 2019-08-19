@@ -72,6 +72,18 @@ public class Board {
         return extremeTop;
     }
 
+    public int getExtremeBottom() {
+        int extremeBottom = 0;
+        for (int row = 0; row < this.cells.length; row++) {
+            for (int col = 0; col < this.cells.length; col++) {
+                if (this.cells[row][col].getValue() == 1) {
+                    extremeBottom = Math.max(extremeBottom, row);
+                }
+            }
+        }
+        return extremeBottom;
+    }
+
     private void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();

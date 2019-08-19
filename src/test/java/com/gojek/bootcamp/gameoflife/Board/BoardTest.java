@@ -60,4 +60,13 @@ public class BoardTest {
         board.setSingleCell(0, 4, 1);
         Assert.assertEquals(0, board.getExtremeTop());
     }
+
+    @Test
+    public void shouldReturnBottommostColumnIndex() {
+        Board board = createBoard();
+        board.setSingleCell(3, 3, 1);
+        Assert.assertEquals(3, board.getExtremeBottom());
+        board.setSingleCell(4, 4, 1);
+        Assert.assertEquals(4, board.getExtremeBottom());
+    }
 }

@@ -100,7 +100,9 @@ public class Game {
         int extremeLeft = getBoardClass().getExtremeLeft();
         int extremeRight = getBoardClass().getExtremeLeft();
         int extremeTop = getBoardClass().getExtremeTop();
-        System.out.println(extremeLeft + " " + extremeRight + " " + extremeTop);
+        int extremeBottom = getBoardClass().getExtremeBottom();
+        System.out.println(
+                extremeLeft + " " + extremeRight + " " + extremeTop + " " + extremeBottom);
         return false;
     }
 
