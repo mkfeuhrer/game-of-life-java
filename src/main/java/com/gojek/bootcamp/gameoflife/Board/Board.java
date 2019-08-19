@@ -89,6 +89,35 @@ public class Board {
         System.out.flush();
     }
 
+    public void expandRight() {
+        int size = this.cells.length;
+        Cell[][] newBoard = new Cell[size + 1][size + 1];
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                newBoard[row][col] = this.cells[row][col];
+            }
+        }
+        for (int cells = 0; cells < size + 1; cells++) {
+            newBoard[size][cells] = new DeadCell();
+            newBoard[cells][size] = new DeadCell();
+        }
+        setCells(newBoard);
+        showBoard();
+    }
+
+    public void expandGrid() {
+        int extremeLeft = this.getExtremeLeft();
+        int extremeRight = this.getExtremeLeft();
+        int extremeTop = this.getExtremeTop();
+        int extremeBottom = this.getExtremeBottom();
+        System.out.println(
+                extremeLeft + " " + extremeRight + " " + extremeTop + " " + extremeBottom);
+
+        if (Math.abs(extremeRight - this.cells.length) == 1) {
+            expandRight();
+        }
+    }
+
     public void showBoard() {
         for (int row = 0; row < this.cells.length; row++) {
             for (int col = 0; col < this.cells.length; col++) {

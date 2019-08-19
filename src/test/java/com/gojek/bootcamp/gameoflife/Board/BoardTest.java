@@ -5,9 +5,8 @@ import org.junit.Test;
 
 public class BoardTest {
 
-    public Board createBoard() {
-        Cell[][] cells = new Cell[5][5];
-        int size = cells.length;
+    public Board createBoard(int size) {
+        Cell[][] cells = new Cell[size][size];
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
                 cells[row][col] = new DeadCell();
@@ -36,7 +35,7 @@ public class BoardTest {
 
     @Test
     public void shouldReturnLeftmostColumnIndex() {
-        Board board = createBoard();
+        Board board = createBoard(5);
         board.setSingleCell(2, 1, 1);
         Assert.assertEquals(1, board.getExtremeLeft());
         board.setSingleCell(1, 0, 1);
@@ -45,7 +44,7 @@ public class BoardTest {
 
     @Test
     public void shouldReturnRightmostColumnIndex() {
-        Board board = createBoard();
+        Board board = createBoard(5);
         board.setSingleCell(2, 3, 1);
         Assert.assertEquals(3, board.getExtremeRight());
         board.setSingleCell(1, 4, 1);
@@ -54,7 +53,7 @@ public class BoardTest {
 
     @Test
     public void shouldReturnTopmostColumnIndex() {
-        Board board = createBoard();
+        Board board = createBoard(5);
         board.setSingleCell(1, 3, 1);
         Assert.assertEquals(1, board.getExtremeTop());
         board.setSingleCell(0, 4, 1);
@@ -63,10 +62,20 @@ public class BoardTest {
 
     @Test
     public void shouldReturnBottommostColumnIndex() {
-        Board board = createBoard();
+        Board board = createBoard(5);
         board.setSingleCell(3, 3, 1);
         Assert.assertEquals(3, board.getExtremeBottom());
         board.setSingleCell(4, 4, 1);
         Assert.assertEquals(4, board.getExtremeBottom());
+    }
+
+    @Test
+    public void shouldExpandBoardWithOneColumnRight() {
+        Board board = createBoard(5);
+        board.setSingleCell(1, 4, 1);
+        Board newBoard = createBoard(6);
+        newBoard.setSingleCell(1, 4, 1);
+        board.expandRight();
+        Assert.assertEquals(newBoard.toArray(), new Board(board.getCells()).toArray());
     }
 }

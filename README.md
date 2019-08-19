@@ -54,7 +54,8 @@ gameoflife/build/reports/tests/test/index.html
 
 ## Limitation
 
-- Project works for any input, but dynamic array expansion doesnt work. 
+- Project works for any input, but dynamic array expansion in all direction doesnt work. 
 - Throws out of bound if board size is exceeded.
+- Grid can only expand right
 
 [1]: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life

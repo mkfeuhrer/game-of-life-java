@@ -103,6 +103,10 @@ public class Game {
         int extremeBottom = getBoardClass().getExtremeBottom();
         System.out.println(
                 extremeLeft + " " + extremeRight + " " + extremeTop + " " + extremeBottom);
+
+        if (Math.abs(extremeRight) == 0) {
+            return true;
+        }
         return false;
     }
 
@@ -119,7 +123,7 @@ public class Game {
             System.out.println("Life is running, are you ?\nCurrent State of Life :");
             game.changeStates(game.getBoardClass().getCells());
             if (game.isBoardExpansionRequired(game.getBoardClass().getCells())) {
-                continue;
+                game.getBoardClass().expandGrid();
             }
             game.getBoardClass().showBoard();
             iterationCount--;
