@@ -45,4 +45,29 @@ public class GameTest {
         int output = game.CountAliveNeighbours(game.getBoardClass().getCells(), 1, 1);
         Assert.assertEquals(1, output);
     }
+
+    @Test
+    public void TestCheckGameBounds() {
+        Game game = createEmptyGame();
+        boolean output = game.checkBounds(0, 0);
+        Assert.assertTrue(output);
+
+        output = game.checkBounds(-1, 0);
+        Assert.assertFalse(output);
+
+        output = game.checkBounds(0, -1);
+        Assert.assertFalse(output);
+
+        output = game.checkBounds(101, 0);
+        Assert.assertFalse(output);
+
+        output = game.checkBounds(0, 101);
+        Assert.assertFalse(output);
+
+        output = game.checkBounds(101, 101);
+        Assert.assertFalse(output);
+
+        output = game.checkBounds(-1, -1);
+        Assert.assertFalse(output);
+    }
 }
