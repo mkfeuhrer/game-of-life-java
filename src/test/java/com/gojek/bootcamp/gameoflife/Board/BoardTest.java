@@ -7,8 +7,9 @@ public class BoardTest {
 
     @Test
     public void shouldReturnCurrentBoardState() {
-        Board board = new Board(5);
-        int expectedBoard[][] = new int[5][5];
-        Assert.assertEquals("Initialize board", expectedBoard, board.getBoard());
+        Cell[][] cells = new Cell[5][5];
+        Board board = new Board(cells);
+        Cell[][] expectedBoard = new Cell[5][5];
+        Assert.assertEquals("Initialize board", expectedBoard, board.getCells());
     }
 }

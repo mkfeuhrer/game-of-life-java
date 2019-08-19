@@ -1,6 +1,7 @@
 package com.gojek.bootcamp.gameoflife.Game;
 
 import com.gojek.bootcamp.gameoflife.Board.Board;
+import com.gojek.bootcamp.gameoflife.Board.Cell;
 
 public class Game {
     private Board board;
@@ -13,13 +14,13 @@ public class Game {
         return board;
     }
 
-    public int[][] start() {
-        return getBoardClass().getBoard();
+    public Cell[][] start() {
+        return getBoardClass().getCells();
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Game of Life!!");
-        Board board = new Board(5);
+        Board board = new Board(new Cell[5][5]);
         Game game = new Game(board);
         game.getBoardClass().showBoard();
         game.start();

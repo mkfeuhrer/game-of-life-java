@@ -1,14 +1,14 @@
 package com.gojek.bootcamp.gameoflife.Board;
 
 public class Board {
-    private int[][] board;
+    private Cell[][] cells;
 
-    public Board(int size) {
-        this.board = new int[size][size];
+    public Board(Cell[][] cells) {
+        this.cells = cells;
     }
 
-    public int[][] getBoard() {
-        return board;
+    public Cell[][] getCells() {
+        return cells;
     }
 
     private void clearScreen() {
@@ -17,12 +17,14 @@ public class Board {
     }
 
     public void showBoard() {
-        for (int row = 0; row < this.board.length; row++) {
-            for (int col = 0; col < this.board.length; col++) {
-                if (this.board[row][col] == 0) {
-                    System.out.print(" □");
+        for (int row = 0; row < this.cells.length; row++) {
+            for (int col = 0; col < this.cells.length; col++) {
+                if (this.cells[row][col].isAlive()) {
+                    AliveCell aliveCell = new AliveCell();
+                    System.out.print(aliveCell.getString());
                 } else {
-                    System.out.print(" ▦");
+                    DeadCell deadCell = new DeadCell();
+                    System.out.print(deadCell.getString());
                 }
             }
             try {
